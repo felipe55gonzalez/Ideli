@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "666228756138",
+    "firebase_url": "https://fastfat-aa817.firebaseio.com",
+    "project_id": "fastfat-aa817",
+    "storage_bucket": "fastfat-aa817.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:666228756138:android:602c92657a71b77629cad3",
+        "android_client_info": {
+          "package_name": "com.fast.fatfast"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "666228756138-vclk060ap154ahobjkov736hb5h8jlp1.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.fast.fatfast",
+            "certificate_hash": "69bf77e299162c1644811fa00530eaa7798cccc5"
+          }
+        },
+        {
+          "client_id": "666228756138-8hruv9db0dhjvmvq799qf51hljjuftoo.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBfwAB6DgzBiH3pNnkrt6Bzfm3bRWW-Gjo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "666228756138-8hruv9db0dhjvmvq799qf51hljjuftoo.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
