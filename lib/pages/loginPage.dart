@@ -6,6 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_signin_button/flutter_signin_button.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter_facebook_login/flutter_facebook_login.dart';
 
 class ScreenArguments {
   String uid;
@@ -142,7 +143,7 @@ class _LoginState extends State<Login> {
                     Buttons.Facebook,
                     shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(20.0)),
-                    onPressed: () {},
+                    onPressed: () {faceloginn();},
                     text: "Facebook",
                   ))
                 ]),
@@ -186,6 +187,21 @@ class _LoginState extends State<Login> {
         (await _auth.signInWithCredential(credential)).user;
 
     return user;
+  }
+  Future faceloginn() async {
+    final facebookLogin = FacebookLogin();
+final result = await facebookLogin.logIn(['email']);
+
+switch (result.status) {
+  case FacebookLoginStatus.loggedIn:
+    print("logeado facebook");
+    break;
+  case FacebookLoginStatus.cancelledByUser:
+    print("cancelado");
+    break;
+  case FacebookLoginStatus.error:
+    print(result.errorMessage.toString());
+    break;}
   }
 
   void revisarUsuario(BuildContext context, FirebaseUser user) {
