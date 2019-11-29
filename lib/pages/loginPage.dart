@@ -6,7 +6,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_signin_button/flutter_signin_button.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:connectivity/connectivity.dart';
 
 class ScreenArguments {
   String uid;
@@ -27,7 +26,7 @@ class UserData {
 final GoogleSignIn _googleSignIn = GoogleSignIn();
 final FirebaseAuth _auth = FirebaseAuth.instance;
 String _nombre, _correo, _telefono;
-bool _isLoading = false, _isconected;
+bool _isLoading = false;
 
 class Login extends StatefulWidget {
   @override
@@ -111,7 +110,7 @@ class _LoginState extends State<Login> {
                         arguments: ScreenArguments("545465rytfhgfh", "mundo"));
                   },
                 ),
-                 Row(
+                Row(
                   children: <Widget>[
                     Expanded(child: Divider()),
                     Text(

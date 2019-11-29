@@ -1,4 +1,3 @@
-import 'package:fatfast/inicio.dart';
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -95,7 +94,8 @@ class _RegisterPageState extends State<RegisterPage> {
                   ),
                   TextFormField(
                     decoration: InputDecoration(
-                        labelText: 'Confirma tu contraseña*', hintText: "********"),
+                        labelText: 'Confirma tu contraseña*',
+                        hintText: "********"),
                     controller: confirmPwdInputController,
                     obscureText: true,
                     validator: pwdValidator,
@@ -112,9 +112,7 @@ class _RegisterPageState extends State<RegisterPage> {
                               .createUserWithEmailAndPassword(
                                   email: emailInputController.text,
                                   password: pwdInputController.text)
-                              .then((currentUser) => 
-                              
-                              Firestore.instance
+                              .then((currentUser) => Firestore.instance
                                   .collection("users")
                                   .document(currentUser.user.uid)
                                   .setData({
@@ -123,9 +121,7 @@ class _RegisterPageState extends State<RegisterPage> {
                                     "surname": lastNameInputController.text,
                                     "email": emailInputController.text,
                                   })
-                                  .then((result) => {
-                                    print("logeado")
-                                        })
+                                  .then((result) => {print("logeado")})
                                   .catchError((err) => print(err)))
                               .catchError((err) => print(err));
                         } else {
