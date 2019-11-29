@@ -143,7 +143,15 @@ class _LoginState extends State<Login> {
                     Buttons.Facebook,
                     shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(20.0)),
-                    onPressed: () {faceloginn();},
+                    onPressed: () {
+                      _isLoading = true;
+                      setState(() {});
+
+                      _facebooklog(context)
+                          .then((FirebaseUser user) =>
+                              {revisarUsuario(context, user)})
+                          .catchError((e) => print(e));
+                    },
                     text: "Facebook",
                   ))
                 ]),
@@ -188,20 +196,26 @@ class _LoginState extends State<Login> {
 
     return user;
   }
-  Future faceloginn() async {
-    final facebookLogin = FacebookLogin();
-final result = await facebookLogin.logIn(['email']);
 
-switch (result.status) {
-  case FacebookLoginStatus.loggedIn:
-    print("logeado facebook");
-    break;
-  case FacebookLoginStatus.cancelledByUser:
-    print("cancelado");
-    break;
-  case FacebookLoginStatus.error:
-    print(result.errorMessage.toString());
-    break;}
+  Future<FirebaseUser> _facebooklog(BuildContext context) async {
+    final facebookLogin = FacebookLogin();
+    final result = await facebookLogin.logIn(['email']);
+    switch (result.status) {
+      case FacebookLoginStatus.loggedIn:
+        print("logeado facebook");
+        AuthCredential fbCredential = FacebookAuthProvider.getCredential(
+            accessToken: result.accessToken.token);
+        FirebaseUser user =
+            (await _auth.signInWithCredential(fbCredential)).user;
+        return user;
+        break;
+      case FacebookLoginStatus.cancelledByUser:
+        print("cancelado");
+        break;
+      case FacebookLoginStatus.error:
+        print(result.errorMessage.toString());
+        break;
+    }
   }
 
   void revisarUsuario(BuildContext context, FirebaseUser user) {
