@@ -12,7 +12,7 @@ class ScreenArguments {
   String uid;
   String message;
 
-  ScreenArguments(this.uid, this.message);
+  ScreenArguments(this.uid, this.message, String correo);
 }
 
 class UserData {
@@ -107,8 +107,7 @@ class _LoginState extends State<Login> {
                   Buttons.Email,
                   text: "Iniciar con Correo",
                   onPressed: () {
-                    Navigator.of(context).pushReplacementNamed('/inicio',
-                        arguments: ScreenArguments("545465rytfhgfh", "mundo"));
+                    
                   },
                 ),
                 Row(

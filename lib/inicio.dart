@@ -3,11 +3,12 @@ import 'package:fatfast/pages/searchhbar.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
-
+  UserData args;
 class Inicio extends StatelessWidget {
+
   @override
   Widget build(BuildContext context) {
-    final ScreenArguments args = ModalRoute.of(context).settings.arguments;
+   args = ModalRoute.of(context).settings.arguments;
     return new Scaffold(
         appBar: new AppBar(
             title: new Text(args.uid),
@@ -70,8 +71,8 @@ Widget _drawerDivisions(BuildContext context) {
   return new ListView(
     children: <Widget>[
       new UserAccountsDrawerHeader(
-        accountName: new Text("nombre de usuario"),
-        accountEmail: new Text("contacto@gmail.com"),
+        accountName: new Text(args.nombre),
+        accountEmail: new Text(args.correo),
         currentAccountPicture: new GestureDetector(
           onTap: () {
             print("i am the current user");

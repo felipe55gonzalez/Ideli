@@ -39,7 +39,11 @@ class CheckDataPage extends StatelessWidget {
                     child: Text("Guardar"),
                     color: Theme.of(context).primaryColor,
                     textColor: Colors.white,
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.of(context).pushReplacementNamed('/inicio',
+                          arguments:
+                              UserData(args.uid, args.nombre,args.correo,args.telefono));
+                    },
                   ),
                 ],
               ),
