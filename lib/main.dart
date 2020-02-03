@@ -2,6 +2,7 @@ import 'package:fatfast/inicio.dart';
 import 'package:fatfast/pages/checkdata.dart';
 import 'package:flutter/material.dart';
 import 'package:fatfast/pages/loginPage.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
 void main() => runApp(MyApp());
 

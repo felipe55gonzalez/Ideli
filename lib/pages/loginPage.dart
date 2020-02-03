@@ -8,13 +8,6 @@ import 'package:google_sign_in/google_sign_in.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter_facebook_login/flutter_facebook_login.dart';
 
-class ScreenArguments {
-  String uid;
-  String message;
-
-  ScreenArguments(this.uid, this.message, String correo);
-}
-
 class UserData {
   String uid;
   String nombre;
@@ -106,9 +99,7 @@ class _LoginState extends State<Login> {
                 SignInButton(
                   Buttons.Email,
                   text: "Iniciar con Correo",
-                  onPressed: () {
-                    
-                  },
+                  onPressed: () {},
                 ),
                 Row(
                   children: <Widget>[
@@ -275,6 +266,20 @@ class _LoginState extends State<Login> {
               ],
             );
           });
+    }
+    isUsersignedin();
+  }
+
+  Future isUsersignedin() async {
+    FirebaseUser user = await FirebaseAuth.instance.currentUser();
+
+    if (user != null) {
+      print("logeado");
+      _isLoading = true;
+      revisarUsuario(context, user);
+    } else {
+      print("no logeado");
+      _isLoading = false;
     }
   }
 }
