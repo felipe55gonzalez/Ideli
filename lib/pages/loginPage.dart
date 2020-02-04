@@ -276,7 +276,9 @@ class _LoginState extends State<Login> {
     if (user != null) {
       print("logeado");
       _isLoading = true;
-      revisarUsuario(context, user);
+      Navigator.of(context).pushReplacementNamed('/inicio',
+                          arguments:
+                              UserData(user.uid, user.displayName,user.email,user.phoneNumber));
     } else {
       print("no logeado");
       _isLoading = false;
