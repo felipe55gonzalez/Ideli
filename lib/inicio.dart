@@ -3,12 +3,16 @@ import 'package:fatfast/pages/searchhbar.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
+import 'dart:convert';
+import 'package:fatfast/model/places.dart';
+import 'package:flutter/services.dart' show rootBundle;
   UserData args;
 class Inicio extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
    args = ModalRoute.of(context).settings.arguments;
+   loadplaces();
     return new Scaffold(
         appBar: new AppBar(
             title: new Text(args.uid),
@@ -27,6 +31,8 @@ class Inicio extends StatelessWidget {
         body: new Column(
           children: <Widget>[
             _carousel(),
+            
+
           ],
         ));
   }
@@ -130,4 +136,13 @@ Widget _drawerDivisions(BuildContext context) {
       )
     ],
   );
+}
+Future<String> _loadplacesAsset() async {
+  return await rootBundle.loadString('assets/places.json');
+}
+Future loadplaces() async {
+  String jsonString = await _loadplacesAsset();
+  final jsonResponse = json.decode(jsonString);
+  Places places = new Places.fromJson(jsonResponse);
+  print(places.urlface);
 }
