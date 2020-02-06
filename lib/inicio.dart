@@ -145,4 +145,5 @@ Future loadplaces() async {
   final jsonResponse = json.decode(jsonString);
   Places places = new Places.fromJson(jsonResponse);
   print(places.urlface);
+  print(places.comidas);
 }
