@@ -1,28 +1,44 @@
-class Places {
+class PlacesList{
+  final List <Place> place;
+  PlacesList({this.place});
+  factory PlacesList.fromJson(List<dynamic> parsedJson){
+    List<Place> places = new List<Place>();
+    places=parsedJson.map((i)=> Place.fromJson(i)).toList();
+    return new PlacesList(
+      place : places
+    );
+
+  }
+}
+
+class Place {
   int id;
   String name;
   String telefono;
   String urlface;
+  String urlimg;
   final List<String> comidas;
   Location cordenadas;
 
-  Places(
+  Place(
       {this.id,
       this.name,
       this.telefono,
       this.urlface,
+      this.urlimg,
       this.comidas,
       this.cordenadas});
-  factory Places.fromJson(Map<String, dynamic> parsedJson) {
-    var comidastoConvert = parsedJson['comidas'];
+  factory Place.fromJson(Map<String, dynamic> json) {
+    var comidastoConvert = json['comidas'];
     List<String> comidaslist = new List<String>.from(comidastoConvert);
-    return Places(
-        id: parsedJson['id'],
-        name: parsedJson['name'],
-        telefono: parsedJson['telefono'],
-        urlface: parsedJson['Facebook'],
+    return new Place(
+        id: json['id'],
+        name: json['name'],
+        telefono: json['telefono'],
+        urlface: json['Facebook'],
+        urlimg: json['Img'],
         comidas: comidaslist,
-        cordenadas: Location.fromJson(parsedJson['cordenadas']));
+        cordenadas: Location.fromJson(json['cordenadas']));
   }
 }
 
@@ -30,7 +46,7 @@ class Location {
   double lat;
   double long;
   Location({this.lat, this.long});
-  factory Location.fromJson(Map<String, dynamic> parsedJson) {
-    return Location(lat: parsedJson['lat'], long: parsedJson['long']);
+  factory Location.fromJson(Map<String, dynamic> json) {
+    return Location(lat: json['lat'], long: json['long']);
   }
 }
