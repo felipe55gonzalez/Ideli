@@ -3,6 +3,7 @@ import 'package:fatfast/pages/searchhbar.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
+import 'package:http/http.dart' as http;
 import 'dart:convert';
 import 'package:fatfast/model/places.dart';
 import 'package:flutter/services.dart' show rootBundle;
@@ -124,9 +125,22 @@ return CarouselSlider(
     return Builder(
       builder: (BuildContext context) {
         return Container(
-          width: MediaQuery.of(context).size.width,
-          margin: EdgeInsets.symmetric(horizontal: 2.0),
+          
+          width: MediaQuery.of(context).size.width-5,
+          margin: EdgeInsets.symmetric(horizontal: 5.0),
           decoration: BoxDecoration(
+             boxShadow: [
+      BoxShadow(
+        color: Colors.grey,
+        blurRadius: 10.0, // has the effect of softening the shadow
+        spreadRadius: 5.0, // has the effect of extending the shadow
+        offset: Offset(
+          0, // horizontal, move right 10
+          7, // vertical, move down 10
+        ),
+      )
+    ],
+            borderRadius: BorderRadius.circular(16),
             color: Colors.amber,
              image: new DecorationImage(
                image: new NetworkImage(i.urlimg),
@@ -143,8 +157,8 @@ return CarouselSlider(
   }).toList(),
   enableInfiniteScroll: true,
    autoPlay: true,
-   autoPlayInterval: Duration(seconds: 2),
-   autoPlayAnimationDuration: Duration(milliseconds: 950),
+   autoPlayInterval: Duration(seconds: 5),
+   autoPlayAnimationDuration: Duration(milliseconds:1200),
    
 );
 }
@@ -153,8 +167,9 @@ Future<String> _loadplacesAsset() async {
 }
 
 Future<PlacesList> loadplaces() async {
-  String jsonString = await _loadplacesAsset();
-  final jsonResponse = json.decode(jsonString);
+  var jsonString = await http.get("https://felipe55gonzalez.github.io/dataplaces/topplaces.json");
+ print(jsonString);
+  final jsonResponse = json.decode(jsonString.body);
   PlacesList lplaces = new PlacesList.fromJson(jsonResponse);
   return lplaces;
 }

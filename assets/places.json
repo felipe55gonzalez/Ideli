@@ -22,7 +22,7 @@
 "name": "Tapatio2",
 "telefono": "877772",
 "Facebook": "https://www.facebook.com/tapatio4/?ref=br_rs",
-"Img": "https://scontent-lax3-1.xx.fbcdn.net/v/t31.0-0/p526x296/12671880_1032154866851494_9113027454613676004_o.jpg?_nc_cat=110&_nc_ohc=aSW2Rtk_0-UAX-_Je44&_nc_ht=scontent-lax3-1.xx&_nc_tp=6&oh=9507864d47f7563e0d28300041add9cf&oe=5ECE5AD2",
+"Img": "https://scontent-lax3-1.xx.fbcdn.net/v/t31.0-8/s960x960/16486912_1289044197829225_8263592583916435703_o.jpg?_nc_cat=110&_nc_ohc=BuUKYyaPdk0AX-_9lpM&_nc_ht=scontent-lax3-1.xx&oh=df4a099d58c17b91af5fc925e3a3f4b7&oe=5EC1D9A3",
 "cordenadas": 
     {
         "lat": 29.319240,
@@ -35,4 +35,43 @@
     "milanesa",
     "bisteck"
 ]
-}]
+},
+{
+    "ID": 3,
+    "name": "chilakas",
+    "telefono": "877772",
+    "Facebook": "https://www.facebook.com/tapatio4/?ref=br_rs",
+    "Img": "https://scontent-lax3-1.xx.fbcdn.net/v/t1.0-9/s960x960/71268534_2635842083145230_4502424541498179584_o.jpg?_nc_cat=108&_nc_ohc=EVsFS5VTROIAX-fZTGw&_nc_ht=scontent-lax3-1.xx&oh=fd2dfa286ba3609dd33a4b959374639a&oe=5ED60E07",
+    "cordenadas": 
+        {
+            "lat": 29.319240,
+            "long": -100.9545388
+        }
+    ,
+    "comidas": [
+        "tacos",
+        "hamburgesas",
+        "milanesa",
+        "bisteck"
+    ]
+    },
+    {
+        "ID": 4,
+        "name": "fritos",
+        "telefono": "877772",
+        "Facebook": "https://www.facebook.com/tapatio4/?ref=br_rs",
+        "Img": "https://scontent-lax3-1.xx.fbcdn.net/v/t1.0-9/84118794_487407718625630_7476774382791032832_n.jpg?_nc_cat=110&_nc_ohc=RASMLoUw5Q8AX_yS37w&_nc_ht=scontent-lax3-1.xx&oh=239158b6863f6c4087953004b6986161&oe=5ED6C755",
+        "cordenadas": 
+            {
+                "lat": 29.319240,
+                "long": -100.9545388
+            }
+        ,
+        "comidas": [
+            "tacos",
+            "hamburgesas",
+            "milanesa",
+            "bisteck"
+        ]
+        }
+]
